@@ -196,7 +196,7 @@ GitHub:
 https://github.com/sameera7926
 
 LinkedIn:
-https://linkedin.com/in/shaik sameera
+https://linkedin.com/in/shaiksameera
 
 ---
 
