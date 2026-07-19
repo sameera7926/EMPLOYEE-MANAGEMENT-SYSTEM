@@ -195,8 +195,7 @@ This project helped in understanding:
 GitHub:
 https://github.com/sameera7926
 
-LinkedIn:
-https://linkedin.com/in/shaiksameera
+
 
 ---
 
