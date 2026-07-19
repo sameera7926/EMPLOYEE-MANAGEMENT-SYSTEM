@@ -1,40 +1,39 @@
 import React from "react";
-import AcceptTask from "./AcceptTask";
-import NewTask from "./NewTask";
-import Complete from "./Complete";
-import Failed from "./Failed";
 
-const TaskList = ({ data }) => {
-  if (!data || !data.tasks) {
-    return <h2 className="text-white mt-10">No Tasks Found</h2>;
-  }
-
+function TaskNumber({ data }) {
   return (
-    <div
-      id="tasklist"
-      className="mt-10 h-[55%] w-full flex items-center gap-5 overflow-x-auto py-5 px-2"
-    >
-      {data.tasks.map((task, index) => {
-        if (task.active) {
-          return <AcceptTask key={index} data={task} />;
-        }
+    <div className="flex mt-10 justify-between gap-5">
 
-        if (task.newTask) {
-          return <NewTask key={index} data={task} />;
-        }
+      <div className="rounded-xl w-90 px-10 py-6 bg-red-400">
+        <h2 className="text-2xl font-bold text-white">
+          {data.taskNumber.active}
+        </h2>
+        <h3 className="text-xl font-semibold text-white">Active Task</h3>
+      </div>
 
-        if (task.completed) {
-          return <Complete key={index} data={task} />;
-        }
+      <div className="rounded-xl w-90 px-10 py-6 bg-yellow-400">
+        <h2 className="text-2xl font-bold text-white">
+          {data.taskNumber.newTask}
+        </h2>
+        <h3 className="text-xl font-semibold text-white">New Task</h3>
+      </div>
 
-        if (task.failed) {
-          return <Failed key={index} data={task} />;
-        }
+      <div className="rounded-xl w-90 px-10 py-6 bg-blue-400">
+        <h2 className="text-2xl font-bold text-white">
+          {data.taskNumber.completed}
+        </h2>
+        <h3 className="text-xl font-semibold text-white">Completed</h3>
+      </div>
 
-        return null;
-      })}
+      <div className="rounded-xl w-90 px-10 py-6 bg-green-400">
+        <h2 className="text-2xl font-bold text-white">
+          {data.taskNumber.failed}
+        </h2>
+        <h3 className="text-xl font-semibold text-white">Failed</h3>
+      </div>
+
     </div>
   );
-};
+}
 
-export default TaskList;
+export default TaskNumber;
