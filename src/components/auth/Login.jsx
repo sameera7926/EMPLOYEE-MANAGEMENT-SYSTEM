@@ -1,60 +1,57 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
 
-const Login = ({ onLogin }) => {
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+const Login = ({ handleLogin }) => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const submitHandler = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    if (!email.trim() || !password.trim()) {
-      return
+    if (!email || !password) {
+      alert("Please enter email and password.");
+      return;
     }
 
-    onLogin?.(email.trim())
-    setEmail('')
-    setPassword('')
-  }
+    handleLogin(email, password);
+
+    setEmail("");
+    setPassword("");
+  };
 
   return (
-    <div className="min-h-screen w-full flex items-center justify-center bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
-      <div className="w-full max-w-md rounded-2xl bg-white p-8 shadow-2xl">
-        <h1 className="text-3xl font-bold text-center text-gray-800">Welcome Back</h1>
-        <p className="mt-2 text-center text-gray-500">Sign in to continue</p>
+    <div className="min-h-screen w-full flex items-center justify-center bg-slate-900">
+      <div className="bg-slate-800 p-8 rounded-xl w-96 shadow-lg">
+        <h1 className="text-white text-3xl font-bold text-center mb-6">
+          Employee Management System
+        </h1>
 
-        <form onSubmit={submitHandler} className="mt-8 flex flex-col gap-5">
+        <form onSubmit={submitHandler} className="flex flex-col gap-5">
           <input
+            type="email"
+            placeholder="Enter Email"
+            className="border rounded-lg px-4 py-3 outline-none"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
-            type="email"
-            placeholder="Email Address"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-700 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           />
 
           <input
+            type="password"
+            placeholder="Enter Password"
+            className="border rounded-lg px-4 py-3 outline-none"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
-            type="password"
-            placeholder="Password"
-            className="w-full rounded-lg border border-gray-300 px-4 py-3 text-gray-700 outline-none transition-all duration-300 focus:border-blue-500 focus:ring-2 focus:ring-blue-200"
           />
 
           <button
             type="submit"
-            className="rounded-lg bg-blue-600 py-3 text-lg font-semibold text-white transition-all duration-300 hover:bg-blue-700 hover:shadow-lg active:scale-95"
+            className="bg-emerald-500 text-white py-3 rounded-lg hover:bg-emerald-600"
           >
             Login
           </button>
         </form>
-
-        <p className="mt-6 text-center text-sm text-gray-500">
-          Use any email and password to sign in. Admin access is available with an email containing “admin”.
-        </p>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;
